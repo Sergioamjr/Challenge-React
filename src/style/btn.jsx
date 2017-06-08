@@ -6,7 +6,7 @@ export default {
         "backgroundColor": '#4472CA',
         "textAlign": "center",
         "padding":"3px 10px",
-        "borderRadius": 4
+        "borderRadius": 2
     },
     "danger": {
         "color": '#fff',
@@ -15,6 +15,6 @@ export default {
         "backgroundColor": '#ca4444',
         "textAlign": "center",
         "padding":"3px 10px",
-        "borderRadius": 4
+        "borderRadius": 2
     }
 }

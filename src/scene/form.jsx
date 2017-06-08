@@ -18,13 +18,10 @@ const style = {
         height: "40px",
         borderRadius: "3px",
         border: "1px solid #ccc",
-        // marginLeft: 5,
+        textTransform: "capitalize",
         width: "100%",
     },
     group: {
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "space-between",
         marginBottom: "15px"
     }
 }
@@ -36,7 +33,6 @@ class Form extends Component {
             'all': posts.all,
             'formOptions': getAll()
         };
-        console.log(this.state);
         this.handleChange = this.handleChange.bind(this);
         this.clearFilter = this.clearFilter.bind(this);
     }
@@ -50,28 +46,23 @@ class Form extends Component {
     }
 
     handleChange(e) {
-    let inputs = document.querySelectorAll('.filter_input'),
-        values = [],
-        qntd = [];
-    inputs.forEach(function(el) {
-        el.value ? qntd.push(el.value) : '';
-        values[el.id] = el.value;
-    });
-
-    // if(qntd.length >= 2) {
-    //     const postsFiltered = filterPosts(values, 'all');
-    //     console.log(postsFiltered);
-    // } else {
-        const 
-            term = e.target.id,
-            value = e.target.value;
-            const postsFiltered = filterPosts(value, term);
-            this.props.functions(postsFiltered);
-        }
-    // }
-
+    const 
+        term = e.target.id,
+        value = e.target.value;
+        const postsFiltered = filterPosts(value, term);
+        this.props.functions(postsFiltered);
+    }
 
     render() {
+        var arr = this.state.formOptions, years = [], genero = [];
+        for (var i = 0; i < arr.length; i++) {
+            if(years.indexOf(arr[i].year)) {
+                years.push(arr[i].year);
+            }
+        }
+
+        arr.map((v, key) => v.categories.filter((c, index) => !genero.includes(c) ? genero.push(c) : ''));
+
          return (
             <div className="containe">
                 <form style={style.form}>
@@ -86,19 +77,14 @@ class Form extends Component {
                             onChange={this.handleChange} 
                             name="year" id="year">
                             <option value="">Selecione o ano</option>
-                            {this.state.formOptions.map(function(e, key) {
-                                return <option key={key} value={e.year}>{e.year}</option>
-                            })};
+                            {years.sort().map((e, key) => <option key={key} value={e}>{e}</option>)};
                         </select>
                     </div>
                     <div className="input-group" style={style.group}>
                         <label htmlFor="category">Categoria</label>
                         <select className="filter_input" style={style.input} onChange={this.handleChange} name="category" id="category">
                             <option value="">Selecione a categoria</option>
-                            <option value="mafia">Máfia</option>
-                            <option value="comedia">Comédia</option>
-                            <option value="terror">Terror</option>
-                            <option value="drama">Drama</option>
+                            {genero.map((e, key) => <option style={{textTransform: "capitalize"}} key={key} value={e}>{e}</option>)};
                         </select>
                     </div>
                     <div className="input-group" style={style.group}>

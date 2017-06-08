@@ -10,7 +10,6 @@ import Header from '../scene/header'
 import { getSingle } from '../services/index';
 import Button from '../shared/btn'
 import Sidebar from './sidebar'
-
 import StyleButton from '../style/btn'
 
 class Single extends Component {
@@ -28,8 +27,8 @@ class Single extends Component {
             return (
                 <section className="space-default">
                     <div className="container">
-                        <Link style={StyleButton.a} to="/">Voltar</Link>
-                        <div className="grid">
+                        <Link style={StyleButton.primary} to="/">Voltar</Link>
+                        <div style={{marginTop: 15}} className="grid">
                             <div className="sm-8-12">
                                 <figure>
                                     <img src={content.image} alt={content.title} />
