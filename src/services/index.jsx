@@ -25,13 +25,15 @@ export function filterPosts(value, term) {
                 return post.title.toLowerCase().includes(value.toLowerCase());
                 break;
             case 'all':
-                let args = {...value},
-                    result = [];
-                if(args.name) {
-                    result =  post.title.toLowerCase().includes(args.name.toLowerCase());
+                let result = [];
+                if(value.year) {
+                    result = post.year == value.year;
                 }
-                if(args.year) {
-                    result =  result.year == args.year;
+                if(value.name) {
+                    result.filter(function(e) {
+                        console.log(e);
+                    });
+                    // result.title.toLowerCase().includes(value.name.toLowerCase());
                 }
                 return result;
                 break;

@@ -18,13 +18,13 @@ const style = {
         height: "40px",
         borderRadius: "3px",
         border: "1px solid #ccc",
-        marginLeft: 5,
+        // marginLeft: 5,
         width: "100%",
     },
     group: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+        // display: "flex",
+        // alignItems: "center",
+        // justifyContent: "space-between",
         marginBottom: "15px"
     }
 }
@@ -33,9 +33,10 @@ class Form extends Component {
     constructor({posts, functions, props}) {
         super(props);
         this.state = {
-            'all': posts.all
+            'all': posts.all,
+            'formOptions': getAll()
         };
-
+        console.log(this.state);
         this.handleChange = this.handleChange.bind(this);
         this.clearFilter = this.clearFilter.bind(this);
     }
@@ -57,17 +58,17 @@ class Form extends Component {
         values[el.id] = el.value;
     });
 
-    if(qntd.length >= 2) {
-        const postsFiltered = filterPosts(values, 'all');
-        console.log(postsFiltered);
-    } else {
+    // if(qntd.length >= 2) {
+    //     const postsFiltered = filterPosts(values, 'all');
+    //     console.log(postsFiltered);
+    // } else {
         const 
             term = e.target.id,
             value = e.target.value;
             const postsFiltered = filterPosts(value, term);
             this.props.functions(postsFiltered);
         }
-    }
+    // }
 
 
     render() {
@@ -85,10 +86,9 @@ class Form extends Component {
                             onChange={this.handleChange} 
                             name="year" id="year">
                             <option value="">Selecione o ano</option>
-                            <option value="1982">1982</option>
-                            <option value="1980">1980</option>
-                            <option value="1984">1984</option>
-                            <option value="1986">1986</option>
+                            {this.state.formOptions.map(function(e, key) {
+                                return <option key={key} value={e.year}>{e.year}</option>
+                            })};
                         </select>
                     </div>
                     <div className="input-group" style={style.group}>

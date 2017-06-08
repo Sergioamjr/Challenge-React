@@ -18,6 +18,9 @@ const style = {
     },
     "image": {
         "overflow": "hidden",
+        "backgroundPosition":"center",
+        "backgroundSize":"cover",
+
     },
     "p": {
         "marginBottom": "5px",
