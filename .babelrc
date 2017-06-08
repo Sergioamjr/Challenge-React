@@ -1,0 +1,7 @@
+// Babel Config
+
+{
+    "presets": [
+        "es2015", "react", "stage-2"
+    ]
+}
