@@ -6,7 +6,8 @@
   "author": "Sérgio Junior",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --inline --hot"
+    "start": "webpack-dev-server --progress --colors --inline --hot",
+    "build": "webpack --progress -p"
   },
   "dependencies": {
     "path": "^0.12.7",
