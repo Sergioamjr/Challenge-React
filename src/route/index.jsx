@@ -11,11 +11,8 @@ import {
   Switch
 } from 'react-router-dom'
 
-
 import css from '../style/style'
 import grid from '../style/grid'
-
-const post = props => <div>{console.log(props)}Post</div>
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +26,6 @@ class App extends Component {
               <div>
                 <Header />
                 <Route exact path="/" component={Home}/>
-                <Route path='/post/:id' component={post}/>
                 <Route path='/single/:id' component={Single}/>
               </div>
             </Router>
