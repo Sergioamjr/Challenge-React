@@ -7,7 +7,3 @@ export function getAll() {
 export function getSingle(e) {
     return allPosts.posts[e];
 };
-
-export function getSidebar(e) {
-   return allPosts.posts.filter(exclude => exclude.id != e);
-}

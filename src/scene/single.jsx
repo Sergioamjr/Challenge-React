@@ -9,7 +9,7 @@ import {
 import Header from '../scene/header'
 import { getSingle } from '../services/index';
 import Button from '../shared/btn'
-import Sidebar from './sidebar'
+
 import StyleButton from '../style/btn'
 
 class Single extends Component {
@@ -26,19 +26,19 @@ class Single extends Component {
         if(content) {
             return (
                 <section className="space-default">
-                    <div className="container">
+                    <div className="container max-width-content">
                         <Link style={StyleButton.primary} to="/">Voltar</Link>
                         <div style={{marginTop: 15}} className="grid">
-                            <div className="sm-8-12">
+                            <div className="sm-12-12">
                                 <figure>
                                     <img src={content.image} alt={content.title} />
                                 </figure>
-                                <h2>{content.title}</h2>
+                                <h2 style={{margin: "20px 0 10px 0", textTransform: "uppercase"}}>{content.title}</h2>
+                                <p style={{marginBottom: "10px", color: "#818181"}}>Gênero: {content.genre} </p>
+                                <p style={{marginBottom: "10px", color: "#818181"}}>Ano: {content.year}</p>
                                 <p>{content.content}</p>
                             </div>
-                            <div className="sm-4-12">
-                                <Sidebar match={this.props.match} />
-                            </div>
+                            
                         </div>
                     </div>
                 </section>

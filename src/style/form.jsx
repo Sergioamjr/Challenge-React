@@ -14,6 +14,7 @@ const style = {
         border: "1px solid #ccc",
         textTransform: "capitalize",
         width: "100%",
+        padding: "0 5px"
     },
     group: {
         marginBottom: "15px"
