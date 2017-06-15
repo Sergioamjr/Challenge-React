@@ -6,7 +6,7 @@ Try
 yarn install
 </pre>
 
-Para rodar
+To run
 <pre>
   yarn start
 </pre>
