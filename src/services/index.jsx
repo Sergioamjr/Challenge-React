@@ -11,19 +11,3 @@ export function getSingle(e) {
 export function getSidebar(e) {
    return allPosts.posts.filter(exclude => exclude.id != e);
 }
-
-export function filterPosts(value, term) {
-    return allPosts.posts.filter(function(post) {
-        switch (term) {
-            case 'year':
-                return post.year == value;
-                break;
-            case 'category':
-                return post.categories.includes(value);
-                break;
-            case 'name':
-                return post.title.toLowerCase().includes(value.toLowerCase());
-                break;
-        }
-    });
-}

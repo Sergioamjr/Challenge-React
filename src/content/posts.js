@@ -3,7 +3,7 @@ export default {
 			"id": "0",
 			"title": "The Godfather",
 			"year": "1972",
-			"genre": "Máfia",
+			"genre": "Máfia, drama",
 			"categories": [
 				'mafia', 'drama'
 			],
@@ -13,7 +13,7 @@ export default {
 			"id": "1",
 			"title": "Scarface",
 			"year": "1984",
-			"genre": "Máfia",
+			"genre": "Máfia, drama, policial",
 			"categories": [
 				'mafia', 'drama', 'policial'
 			],
@@ -75,7 +75,7 @@ export default {
 			"id": "7",
 			"title": "A Lista de Schindler",
 			"year": "1993",
-			"genre": "Drama",
+			"genre": "Drama, guerra",
 			"categories": [
 				'drama', 'guerra'
 			],

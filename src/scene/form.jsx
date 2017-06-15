@@ -4,6 +4,8 @@ import { getAll, filterPosts } from '../services/index';
 import StyleA from '../style/btn'
 import Card from '../shared/cards'
 
+import _ from 'lodash';
+
 const style = {
     form: {
         display: "flex",
@@ -33,6 +35,7 @@ class Form extends Component {
             'all': posts.all,
             'formOptions': getAll()
         };
+
         this.handleChange = this.handleChange.bind(this);
         this.clearFilter = this.clearFilter.bind(this);
     }
@@ -47,10 +50,21 @@ class Form extends Component {
 
     handleChange(e) {
     const 
-        term = e.target.id,
-        value = e.target.value;
-        const postsFiltered = filterPosts(value, term);
-        this.props.functions(postsFiltered);
+        name = document.getElementById('name').value,
+        year = document.getElementById('year').value,
+        cat = document.getElementById('category').value;
+    var data = getAll();
+        if(name) {
+            data = _.filter(data, item => item.title.toLowerCase().includes(name.toLowerCase()));
+        }
+        if(year) {
+            data = _.filter(data, e => e.year == year);
+        }
+        if(cat) {
+           data = _.filter(data, item => item.categories.includes(cat));
+        }
+
+        this.props.functions(data)
     }
 
     render() {
@@ -74,7 +88,7 @@ class Form extends Component {
                         <select 
                             className="filter_input" 
                             style={style.input} 
-                            onChange={this.handleChange} 
+                            onChange={this. handleChange} 
                             name="year" id="year">
                             <option value="">Selecione o ano</option>
                             {years.sort().map((e, key) => <option key={key} value={e}>{e}</option>)};
@@ -89,7 +103,7 @@ class Form extends Component {
                     </div>
                     <div className="input-group" style={style.group}>
                         <label htmlFor="category">Nome:</label>
-                        <input className="filter_input" style={style.input} onChange={this.handleChange} name="name" id="name" type="text"/>
+                        <input placeholder="Pesquisa o nome do filme" className="filter_input" style={style.input} onChange={this.handleChange} name="name" id="name" type="text"/>
                     </div>
                     <div className="input-group" style={style.group}>
                         <a style={StyleA.danger} color="red" href="#" onClick={this.clearFilter}>
