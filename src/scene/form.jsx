@@ -20,7 +20,7 @@ class Form extends Component {
     }
 
     clearFilter() {
-        const allposts = getAll();
+        const allposts = getAll(); 
         this.props.functions(allposts);
         document.getElementById('name').value = '';
         document.getElementById('year').value = '';
