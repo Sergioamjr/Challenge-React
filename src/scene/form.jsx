@@ -3,30 +3,9 @@ import { getAll, filterPosts } from '../services/index';
 
 import StyleA from '../style/btn'
 import Card from '../shared/cards'
+import StyleForm from '../style/form'
 
 import _ from 'lodash';
-
-const style = {
-    form: {
-        display: "flex",
-        justifyContent: "space-around",
-        marginBottom: 15,
-        flexDirection: "column",
-        padding: 15,
-        border: "1px solid #ccc",
-        borderRadius: 4,
-    },
-    input: {
-        height: "40px",
-        borderRadius: "3px",
-        border: "1px solid #ccc",
-        textTransform: "capitalize",
-        width: "100%",
-    },
-    group: {
-        marginBottom: "15px"
-    }
-}
 
 class Form extends Component {
     constructor({posts, functions, props}) {
@@ -79,33 +58,33 @@ class Form extends Component {
 
          return (
             <div className="containe">
-                <form style={style.form}>
-                    <div className="input-group" style={style.group}>
+                <form style={StyleForm.form}>
+                    <div className="input-group" style={StyleForm.group}>
                         <p>Filtrar por:</p>
                     </div>
-                    <div className="input-group" style={style.group}>
+                    <div className="input-group" style={StyleForm.group}>
                         <label htmlFor="category">Ano</label>
                         <select 
                             className="filter_input" 
-                            style={style.input} 
+                            style={StyleForm.input} 
                             onChange={this. handleChange} 
                             name="year" id="year">
                             <option value="">Selecione o ano</option>
                             {years.sort().map((e, key) => <option key={key} value={e}>{e}</option>)};
                         </select>
                     </div>
-                    <div className="input-group" style={style.group}>
+                    <div className="input-group" style={StyleForm.group}>
                         <label htmlFor="category">Categoria</label>
-                        <select className="filter_input" style={style.input} onChange={this.handleChange} name="category" id="category">
+                        <select className="filter_input" style={StyleForm.input} onChange={this.handleChange} name="category" id="category">
                             <option value="">Selecione a categoria</option>
                             {genero.map((e, key) => <option style={{textTransform: "capitalize"}} key={key} value={e}>{e}</option>)};
                         </select>
                     </div>
-                    <div className="input-group" style={style.group}>
+                    <div className="input-group" style={StyleForm.group}>
                         <label htmlFor="category">Nome:</label>
-                        <input placeholder="Pesquisa o nome do filme" className="filter_input" style={style.input} onChange={this.handleChange} name="name" id="name" type="text"/>
+                        <input placeholder="Pesquisa o nome do filme" className="filter_input" style={StyleForm.input} onChange={this.handleChange} name="name" id="name" type="text"/>
                     </div>
-                    <div className="input-group" style={style.group}>
+                    <div className="input-group" style={StyleForm.group}>
                         <a style={StyleA.danger} color="red" href="#" onClick={this.clearFilter}>
                             Limpar filtros
                         </a>
